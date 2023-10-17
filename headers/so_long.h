@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:01:24 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/14 13:49:39 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/10/17 14:10:09 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@
 
 typedef struct t_start
 {
-	int	fd;		// file descriptor	
-	int	height;	// height of the map
-	int	width;	// width of the map
-	int	exitcount;	// number of exits
-	int	playercount;	// number of players
-	int	columncount;	// number of collectables
-	int	collectables;
-	int	counter;	// move counter
-	int	x_axis;	// x axis
-	int	y_axis;	// y axis
+	int		fd;
+	int		height;
+	int		width;
+	int		exitcount;
+	int		playercount;
+	int		columncount;
+	int		collectables;
+	int		counter;
+	int		x_axis;
+	int		y_axis;
 
 	char	**map;
 
@@ -45,4 +45,17 @@ typedef struct t_start
 
 }			t_comp;
 
+/*			MAP			*/
+int		map_width(char *str);
+int		add_line(t_comp *game, char *line);
+int		map_reading(t_comp *game, char **av);
+
+/*			GAME_ERRORS			*/
+int		horiz_wall(t_comp *game);
+int		vert_wall(t_comp *game);
+void	check_walls(t_comp *game);
+void	counter_checker(t_comp *game, int height, int width);
+void	char_checker(t_comp *game);
+
+void	check_errors(t_comp *game);
 #endif
