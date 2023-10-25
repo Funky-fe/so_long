@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 14:23:45 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/05/22 15:53:27 by rlima-fe         ###   ########.fr       */
+/*   Created: 2023/09/09 12:07:42 by rlima-fe          #+#    #+#             */
+/*   Updated: 2023/10/25 18:54:24 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int	format_type(char format, va_list args, int flag)
 	return (s);
 }
 
-int	ft_flags(char c)
+int	ft_flags(char type)
 {
 	int	flag;
 
 	flag = 0;
-	if (c == '+')
+	if (type == '+')
 		flag = 1;
-	if (c == '#')
+	if (type == '#')
 		flag = 2;
 	return (flag);
 }

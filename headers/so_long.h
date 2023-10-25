@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:01:24 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/18 16:49:45 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:58:14 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <string.h>
 # include "get_next_line.h"
 # include "mlx.h"
-# include "printf.h"
+# include "../printf/ft_printf.h"
 
 typedef struct t_start
 {
@@ -59,6 +59,9 @@ void	check_walls(t_comp *game);
 void	counter_checker(t_comp *game, int height, int width);
 void	char_checker(t_comp *game);
 
+int		controls_hook(int keycode, t_comp *game);
+
 void	check_errors(t_comp *game);
+void	exit_game(t_comp *game);
 
 #endif

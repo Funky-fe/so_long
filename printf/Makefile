@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/03 14:37:58 by rlima-fe          #+#    #+#              #
-#    Updated: 2023/10/16 18:31:16 by rlima-fe         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Variables
 NAME = libftprintf.a
 
@@ -44,13 +32,15 @@ bonus: fclean all
 
 clean:
 		$(RM) $(SRC:=.o)
-		@echo "$(BLUE)ft_printf object files cleaned!$(DEFAULT)"
+		@echo "$(RED)ft_printf object files cleaned!$(DEFAULT)"
 
 fclean: clean
 		$(RM) $(NAME)
 		@echo "$(RED)libftprintf.a deleted!$(DEFAULT)"
 
 re: 	fclean $(NAME)
-		@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEFAULT)"
+		@echo "$(CYAN)Cleaned and rebuilt everything for ft_printf!$(DEFAULT)"
 
 .PHONY:		all clean fclean re
+
+.SILENT:

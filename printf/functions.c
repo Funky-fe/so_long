@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 14:23:38 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/05/18 16:06:14 by rlima-fe         ###   ########.fr       */
+/*   Created: 2023/09/09 12:07:48 by rlima-fe          #+#    #+#             */
+/*   Updated: 2023/10/25 18:54:19 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,25 @@ int	ft_putstr(char *s)
 	return (i);
 }
 
+int	ft_putnbr(long long n, int flag)
+{
+	int	len;
+
+	len = 0;
+	if (flag == 1 && n >= 0)
+	{
+		len += ft_putchar('+');
+	}
+	if (n < 0)
+	{
+		n *= -1;
+		len += ft_putchar('-');
+	}
+	flag = 0;
+	len += ft_putnbrbase(n, DEC, 0, flag);
+	return (len);
+}
+
 int	ft_putnbrbase(unsigned long long nbr, char *base, long len, int flag)
 {
 	size_t	baselen;
@@ -66,23 +85,4 @@ int	ft_putnbrbase(unsigned long long nbr, char *base, long len, int flag)
 		len = ft_putnbrbase(nbr / baselen, base, len, flag);
 	ft_putchar(base[nbr % baselen]);
 	return (++len);
-}
-
-int	ft_putnbr(long long n, int flag)
-{
-	int	len;
-
-	len = 0;
-	if (flag == 1 && n >= 0)
-	{
-		len += ft_putchar('+');
-	}
-	if (n < 0)
-	{
-		n *= -1;
-		len += ft_putchar('-');
-	}
-	flag = 0;
-	len += ft_putnbrbase(n, DEC, 0, flag);
-	return (len);
 }

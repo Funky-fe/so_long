@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:51:16 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/18 14:14:50 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:48:50 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	vert_wall(t_comp *game)
 			return (0);
 		height++;
 	}
+	return (1);
 }
 
 void	check_walls(t_comp *game)
@@ -52,8 +53,8 @@ void	check_walls(t_comp *game)
 	horizontalwall = horiz_wall(game);
 	if (!verticalwall || !horizontalwall)
 	{
-		printf("Error\nMap is not surrounded by walls\n");
-		/*inserir funcao de erro e dar free no jogo*/
+		ft_printf("Error\nMap is not surrounded by walls\n");
+		exit_game(game);
 	}
 }
 
@@ -65,16 +66,15 @@ void	counter_checker(t_comp *game, int height, int width)
 			game->map[height][width] != 'E' &&
 			game->map[height][width] != 'P' &&
 			game->map[height][width] != '\n')
-		return (0);
 	{
-		printf("Error\nMap is not valid here%c\n", game->map[height][width]);
-		/*funcao erro free*/
+		ft_printf("Error\nMap is not valid here%c\n", game->map[height][width]);
+		exit_game(game);
 	}
-	if (game->map == 'C')
+	if (game->map[height][width] == 'C')
 		game->columncount++;
-	if (game->map == 'E')
+	if (game->map[height][width] == 'E')
 		game->exitcount++;
-	if (game->map == 'P')
+	if (game->map[height][width] == 'P')
 		game->playercount++;
 }
 
@@ -87,7 +87,7 @@ void	char_checker(t_comp *game)
 	while (height < game->height - 1)
 	{
 		width = 0;
-		while (width <= width)
+		while (width <= game->width)
 		{
 			counter_checker(game, height, width);
 			width++;
@@ -97,8 +97,8 @@ void	char_checker(t_comp *game)
 	if (game->playercount != 1 || game->exitcount != 1
 		|| game->columncount < 1)
 	{
-		printf("Error\nSomething is wrong\n");
-		printf("Player, Collectable or exit numbers issue!\n");
-		/*funcao eriowfkqwpef keq :D*/
+		ft_printf("Error\nSomething is wrong\n");
+		ft_printf("Player, Collectable or exit numbers issue!\n");
+		exit_game(game);
 	}
 }
