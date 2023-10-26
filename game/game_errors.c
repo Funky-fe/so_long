@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 13:51:16 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/25 18:48:50 by rlima-fe         ###   ########.fr       */
+/*   Created: 2023/10/26 16:04:16 by rlima-fe          #+#    #+#             */
+/*   Updated: 2023/10/26 16:04:20 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../headers/so_long.h"
 
 int	horiz_wall(t_comp *game)
 {

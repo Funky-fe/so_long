@@ -6,11 +6,11 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:09:03 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/17 14:14:23 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:38:07 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../headers/so_long.h"
 
 /*
 	This function will read the first line of the map 

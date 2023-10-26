@@ -6,11 +6,11 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:19:57 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/25 18:58:51 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:06:04 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../headers/so_long.h"
 
 int	legal_move(t_comp *game, int x, int y)
 {

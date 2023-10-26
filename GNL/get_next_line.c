@@ -6,11 +6,11 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:16:48 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/14 13:55:33 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:07:47 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../headers/get_next_line.h"
 
 char	*get_next_line(int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:43:32 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/23 19:59:13 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:37:58 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../headers/so_long.h"
 
 void	check_errors(t_comp *game)
 {
