@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:04:16 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/26 16:04:20 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:31:26 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	horiz_wall(t_comp *game)
 	j = 0;
 	while (j < i)
 	{
-		if (game->map[0][j] != '1' && game->map[game->height - 1][j] != '1' )
+		if (game->map[0][j] != '1' || game->map[game->height - 1][j] != '1' )
 			return (0);
 		j++;
 	}
@@ -37,7 +37,7 @@ int	vert_wall(t_comp *game)
 	height = 0;
 	while (height < game->height)
 	{
-		if (game->map[height][0] != '1' && game->map[height][width - 1] != '1')
+		if (game->map[height][0] != '1' || game->map[height][width - 1] != '1')
 			return (0);
 		height++;
 	}
@@ -67,7 +67,9 @@ void	counter_checker(t_comp *game, int height, int width)
 			game->map[height][width] != 'P' &&
 			game->map[height][width] != '\n')
 	{
-		ft_printf("Error\nMap is not valid here%c\n", game->map[height][width]);
+		ft_printf("Error\nMap is not valid here:\n");
+		ft_printf("Line: %i\n", game->height - 1);
+		ft_printf("Column: %i\n", game->width - 2);
 		exit_game(game);
 	}
 	if (game->map[height][width] == 'C')

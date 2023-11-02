@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:01:24 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/26 17:53:56 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/02 16:31:52 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct t_start
 	char	**map;
 
 	void	*floor;
-	void	*barrier;
+	void	*wall;
 	void	*exit;
 	void	*player;
 	void	*collectable;
@@ -61,6 +61,11 @@ void	char_checker(t_comp *game);
 
 int		controls_hook(int keycode, t_comp *game);
 
+// GRAPHS
+void	update_graphics(t_comp *game);
+void	set_img_to_var(t_comp *game);
+
+// ERRORS
 void	check_errors(t_comp *game);
 void	exit_game(t_comp *game);
 

@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:19:57 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/26 16:06:04 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/02 16:27:44 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	key_a_d(t_comp *game, int keycode)
 
 	x = game->x_axis;
 	y = game->y_axis;
-	if (keycode == 0)
+	if (keycode == 97)
 	{
 		x--;
 		if (game->map[y][x] == '1')
@@ -61,7 +61,7 @@ int	key_a_d(t_comp *game, int keycode)
 			return (0);
 		game->map[y][x + 1] = '0';
 	}
-	else if (keycode == 0)
+	else if (keycode == 100)
 	{
 		x++;
 		if (game->map[y][x] == '1')
@@ -85,7 +85,7 @@ int	key_w_s(t_comp *game, int keycode)
 
 	x = game->x_axis;
 	y = game->y_axis;
-	if (keycode == 0)
+	if (keycode == 119)
 	{
 		y--;
 		if (game->map[y][x] == '1')
@@ -94,7 +94,7 @@ int	key_w_s(t_comp *game, int keycode)
 			return (0);
 		game->map[y + 1][x] = '0';
 	}
-	else if (keycode == 0)
+	else if (keycode == 115)
 	{
 		y++;
 		if (game->map[y][x] == '1')
@@ -109,7 +109,16 @@ int	key_w_s(t_comp *game, int keycode)
 
 int	controls_hook(int keycode, t_comp *game)
 {
-	(void)game;
-	ft_printf("this is the keycode: %i\n", keycode);
+	int	valid;
+
+	valid = 0;
+	if (keycode == 119 || keycode == 115)
+		valid = key_w_s(game, keycode);
+	else if (keycode == 65307)
+		exit_game(game);
+	else if (keycode == 97 || keycode == 100)
+		valid = key_a_d(game, keycode);
+	if (valid)
+		update_graphics(game);
 	return (1);
 }
