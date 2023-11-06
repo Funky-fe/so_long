@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:06:23 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/10/30 14:09:50 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/06 17:16:19 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int main(int ac, char **av)
 	check_errors(&game);
 	game.mlxpointer = mlx_init();
 	game.winpointer = mlx_new_window(game.mlxpointer, game.width * 169, game.height * 169, "so_long");
+	set_img_to_var(&game);
+	update_graphics(&game);
 	mlx_key_hook(game.winpointer, controls_hook, &game);
 	mlx_loop(game.mlxpointer);
 	exit_game(&game);

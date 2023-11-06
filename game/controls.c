@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:19:57 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/02 16:27:44 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/06 20:01:02 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	legal_move(t_comp *game, int x, int y)
 			ft_printf("You win!\n");
 			exit_game(game);
 		}
+		else
+			return (0);
 	}
 	if (game->map[y][x] == 'C')
 	{
@@ -28,14 +30,12 @@ int	legal_move(t_comp *game, int x, int y)
 		game->x_axis = x;
 		game->y_axis = y;
 		game->collectables--;
-		game->counter++;
 	}
 	if (game->map[y][x] == '0')
 	{
 		game->map[y][x] = 'P';
 		game->x_axis = x;
 		game->y_axis = y;
-		game->counter++;
 	}
 	return (1);
 } 
@@ -70,7 +70,7 @@ int	key_a_d(t_comp *game, int keycode)
 			return (0);
 		game->map[y][x - 1] = '0';
 	}
-	ft_printf("steps taken %i\n", game->counter);
+	ft_printf("this is keycode: %c\ny = %i\nx = %i\ncollectables = %i\nsteps taken %i\n\n\n",keycode, y, x, game->collectables, game->counter);
 	return (1);
 }
 /*
@@ -101,9 +101,9 @@ int	key_w_s(t_comp *game, int keycode)
 			return (0);
 		if (!legal_move(game, x, y))
 			return (0);
-		game->map[y - 1	][x] = '0';
+		game->map[y - 1][	x] = '0';
 	}
-	ft_printf("steps taken %i\n", game->counter);
+	ft_printf("this is keycode: %c\ny = %i\nx = %i\ncollectables = %i\nsteps taken %i\n\n\n",keycode, y, x, game->collectables, game->counter);
 	return (1);
 }
 
@@ -119,6 +119,9 @@ int	controls_hook(int keycode, t_comp *game)
 	else if (keycode == 97 || keycode == 100)
 		valid = key_a_d(game, keycode);
 	if (valid)
+	{
+		game->counter++;
 		update_graphics(game);
+	}
 	return (1);
 }
