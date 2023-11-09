@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rubenfernandes <rubenfernandes@student.42. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:01:24 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/02 16:31:52 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:51:41 by rubenfernandes   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,16 @@ typedef struct t_start
 	int		width;
 	int		exitcount;
 	int		playercount;
-	int		columncount;
+	int		collcount;
 	int		collectables;
 	int		counter;
 	int		x_axis;
 	int		y_axis;
+	int		collectcheck;
+	int		exitcheck;
 
 	char	**map;
+	char	**map2;
 
 	void	*floor;
 	void	*wall;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_errors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rubenfernandes <rubenfernandes@student.42. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:04:16 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/02 15:31:26 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:49:28 by rubenfernandes   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	counter_checker(t_comp *game, int height, int width)
 		exit_game(game);
 	}
 	if (game->map[height][width] == 'C')
-		game->columncount++;
+		game->collcount++;
 	if (game->map[height][width] == 'E')
 		game->exitcount++;
 	if (game->map[height][width] == 'P')
@@ -97,7 +97,7 @@ void	char_checker(t_comp *game)
 		height++;
 	}
 	if (game->playercount != 1 || game->exitcount != 1
-		|| game->columncount < 1)
+		|| game->collcount < 1)
 	{
 		ft_printf("Error\nSomething is wrong\n");
 		ft_printf("Player, Collectable or exit numbers issue!\n");
