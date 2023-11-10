@@ -6,11 +6,29 @@
 /*   By: rubenfernandes <rubenfernandes@student.42. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:43:32 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/09 22:48:46 by rubenfernandes   ###   ########.fr       */
+/*   Updated: 2023/11/10 17:45:38 by rubenfernandes   ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
+
+void    map_copy(t_comp *game)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while(y < game->height)
+	{
+		x = 0;
+		while(x < game->width)
+		{
+			game->map2[y][x] = game->map[y][x];
+			x++;
+		}
+		y++;	
+	}
+}
 
 void    flood_fill2(t_comp *game, int y, int x)
 {
@@ -51,6 +69,7 @@ void	check_errors(t_comp *game)
 {
 	check_walls(game);
 	char_checker(game);
+	map_copy(game);
 	flood_fill(game, game->y_axis, game->x_axis);
 	if (game->exitcheck != 1 || game->collectcheck != game->collcount)
 		exit_game(game);
@@ -65,7 +84,11 @@ void	exit_game(t_comp *game)
 		mlx_destroy_window(game->mlxpointer, game->winpointer);
 	free (game->mlxpointer);
 	while (line < game->height - 1)
-		free(game->map[line++]);
+    {
+        free(game->map2[line]);
+		free(game->map[line]);
+        line++;
+    }
 	free (game->map);
 	exit (0);
 }
