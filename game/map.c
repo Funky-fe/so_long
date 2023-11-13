@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rubenfernandes <rubenfernandes@student.42. +#+  +:+       +#+        */
+/*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:09:03 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/10 17:26:29 by rubenfernandes   ###   ########.fr       */
+/*   Updated: 2023/11/13 13:54:07 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,6 @@ int	map_reading(t_comp *game, char **av)
 			break ;
 	}
 	close (game->fd);
-	while(i < game->height)
-	{
-		if (map_width(game->map[i]) != map_width(game->map[0]))
-			{
-				ft_printf("Error!\nMap is not a retangle!");
-				exit_game(game);
-			}
-		i++;
-	}
 	game->width = map_width(game->map[0]);
 	return (1);
 }

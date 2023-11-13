@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_errors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rubenfernandes <rubenfernandes@student.42. +#+  +:+       +#+        */
+/*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:04:16 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/09 22:49:28 by rubenfernandes   ###   ########.fr       */
+/*   Updated: 2023/11/13 18:19:07 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,26 @@ void	check_walls(t_comp *game)
 {
 	int	verticalwall;
 	int	horizontalwall;
+	int	i;
 
+	i = 1;
 	verticalwall = vert_wall(game);
 	horizontalwall = horiz_wall(game);
 	if (!verticalwall || !horizontalwall)
 	{
-		ft_printf("Error\nMap is not surrounded by walls\n");
+		ft_printf("Error\nMap is not surrounded by walls ");
+		ft_printf("or is not a rectangle!\n");
 		exit_game(game);
+	}
+	while(i < game->height - 1)
+	{
+		if (map_width(game->map[0]) != map_width(game->map[i]))
+			{
+				ft_printf("Error\nMap is not surrounded by walls ");
+				ft_printf("or is not a rectangle!\n");
+				exit_game(game);
+			}
+		i++;
 	}
 }
 
@@ -77,7 +90,11 @@ void	counter_checker(t_comp *game, int height, int width)
 	if (game->map[height][width] == 'E')
 		game->exitcount++;
 	if (game->map[height][width] == 'P')
-		game->playercount++;
+		{
+			game->playercount++;
+			game->x_axis = width;
+			game->y_axis = height;
+		}
 }
 
 void	char_checker(t_comp *game)
