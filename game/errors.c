@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:43:32 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/13 18:29:14 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:03:33 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int	valid_path(t_comp *game, char **map, int x, int y)
 		|| map[y][x] == '1' || map[y][x] == 'X')
 			return (0);
 	if (map[y][x] == 'E')
+	{
 		e++;
+		return (0);
+	}
 	if (map[y][x] == 'C')
 		c++;
 	map[y][x] = 'X';
@@ -52,7 +55,7 @@ int	valid_path(t_comp *game, char **map, int x, int y)
 	valid_path(game, map, x - 1, y);
 	valid_path(game, map, x, y + 1);
 	valid_path(game, map, x, y - 1);
-	if (e == 1 && c == game->collcount)
+	if (e > 0 && c == game->collcount)
 		return (1);
 	else
 		return (0);

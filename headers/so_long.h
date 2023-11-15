@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:01:24 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/13 15:45:15 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:35:01 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ void	set_img_to_var(t_comp *game);
 // ERRORS
 void	check_errors(t_comp *game);
 void	exit_game(t_comp *game);
-void	free_map(t_comp *game);
+void	win_message(t_comp *game);
 
 #endif

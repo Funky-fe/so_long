@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:09:03 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/13 13:54:07 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:08:08 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	map_reading(t_comp *game, char **av)
 	game->fd = open(av[1], O_RDONLY);
 	if (game->fd < 0)
 		return (0);
+	game->map = NULL;
 	while (1)
 	{
 		mapline = get_next_line(game->fd);
@@ -77,6 +78,11 @@ int	map_reading(t_comp *game, char **av)
 			break ;
 	}
 	close (game->fd);
+	if (!game->map || !game->map[0])
+	{
+		ft_printf("Error\nInvalid map\n");
+		exit_game(game);
+	}
 	game->width = map_width(game->map[0]);
 	return (1);
 }

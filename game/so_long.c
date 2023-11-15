@@ -6,11 +6,20 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:06:23 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/13 18:37:44 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:21:26 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
+
+// void	destroy_windows(t_comp *game)
+// {
+// 	mlx_destroy_image(game->mlxpointer, game->wall);
+// 	mlx_destroy_image(game->mlxpointer, game->floor);
+// 	mlx_destroy_image(game->mlxpointer, game->collectable);
+// 	mlx_destroy_image(game->mlxpointer, game->player);
+// 	mlx_destroy_image(game->mlxpointer, game->exit);
+// }
 
 void	exit_game(t_comp *game)
 {
@@ -20,11 +29,22 @@ void	exit_game(t_comp *game)
 	if (game->winpointer)
 		mlx_destroy_window(game->mlxpointer, game->winpointer);
 	free (game->mlxpointer);
-	while (line < game->height - 1)
+	//destroy_windows(game);
+	while (line < game->height)
     {
 		free(game->map[line]);
         line++;
     }
+	if (game->map2)
+	{
+		line = 0;
+		while (line < game->height)
+    	{
+			free(game->map2[line]);
+        	line++;
+    	}
+		free (game->map2);
+	}
 	free (game->map);
 	exit (0);
 }
@@ -53,6 +73,6 @@ int main(int ac, char **av)
 	set_img_to_var(&game);
 	update_graphics(&game);
 	mlx_key_hook(game.winpointer, controls_hook, &game);
+	mlx_hook(game.winpointer, 17, 0, (void *)exit, 0);
 	mlx_loop(game.mlxpointer);
-	exit_game(&game);
 }

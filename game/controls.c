@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:19:57 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/13 18:38:18 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:39:33 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	key_a_d(t_comp *game, int keycode)
 			return (0);
 		game->map[y][x - 1] = '0';
 	}
-	ft_printf("steps taken %i\n",keycode, y, x, game->collectables, game->counter);
+	ft_printf("steps taken %i\n",game->counter);
 	return (1);
 }
 /*
@@ -103,7 +103,7 @@ int	key_w_s(t_comp *game, int keycode)
 			return (0);
 		game->map[y - 1][	x] = '0';
 	}
-	ft_printf("steps taken %i\n",keycode, y, x, game->collectables, game->counter);
+	ft_printf("steps taken %i\n",game->counter);
 	return (1);
 }
 
