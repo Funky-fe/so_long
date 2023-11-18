@@ -64,9 +64,7 @@ int	add_line(t_comp *game, char *line)
 int	map_reading(t_comp *game, char **av)
 {
 	char	*mapline;
-	int		i;
 
-	i = 1;
 	game->fd = open(av[1], O_RDONLY);
 	if (game->fd < 0)
 		return (0);

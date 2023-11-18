@@ -12,24 +12,12 @@
 
 #include "../headers/so_long.h"
 
-// void	destroy_windows(t_comp *game)
-// {
-// 	mlx_destroy_image(game->mlxpointer, game->wall);
-// 	mlx_destroy_image(game->mlxpointer, game->floor);
-// 	mlx_destroy_image(game->mlxpointer, game->collectable);
-// 	mlx_destroy_image(game->mlxpointer, game->player);
-// 	mlx_destroy_image(game->mlxpointer, game->exit);
-// }
-
 void	exit_game(t_comp *game)
 {
 	int	line;
 
 	line = 0;
-	if (game->winpointer)
-		mlx_destroy_window(game->mlxpointer, game->winpointer);
-	free (game->mlxpointer);
-	//destroy_windows(game);
+	destroy_windows(game);
 	while (line < game->height)
     {
 		free(game->map[line]);
@@ -66,6 +54,7 @@ int main(int ac, char **av)
 	if (ac != 2)
 		return (0);
 	ft_memset(&game, 0, sizeof(t_comp));
+	init_list(&game);
 	map_reading(&game, av);
 	check_errors(&game);
 	game.mlxpointer = mlx_init();

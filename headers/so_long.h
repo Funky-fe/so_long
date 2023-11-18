@@ -71,6 +71,7 @@ void	set_img_to_var(t_comp *game);
 // ERRORS
 void	check_errors(t_comp *game);
 void	exit_game(t_comp *game);
-void	win_message(t_comp *game);
+int		init_list(t_comp *game);
+void	destroy_windows(t_comp *game);
 
 #endif
