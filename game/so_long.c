@@ -58,7 +58,7 @@ int main(int ac, char **av)
 	map_reading(&game, av);
 	check_errors(&game);
 	game.mlxpointer = mlx_init();
-	game.winpointer = mlx_new_window(game.mlxpointer, game.width * 64, game.height * 64, "so_long");
+	game.winpointer = mlx_new_window(game.mlxpointer, game.width * 32, game.height * 32, "so_long");
 	set_img_to_var(&game);
 	update_graphics(&game);
 	mlx_key_hook(game.winpointer, controls_hook, &game);

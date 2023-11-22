@@ -33,25 +33,25 @@ void		graphics_helper(t_comp *game, int i, int j)
 {
 	if (game->map[i][j] == '1')
 		mlx_put_image_to_window(game->mlxpointer, game->winpointer,
-			game->wall, j * 64, i * 64);
+			game->wall, j * 32, i * 32);
 	if (game->map[i][j] == '0')
 		mlx_put_image_to_window(game->mlxpointer, game->winpointer,
-			game->floor, j * 64, i * 64);
+			game->floor, j * 32, i * 32);
 	if (game->map[i][j] == 'C')
 	{
 		game->collectables++;
 		mlx_put_image_to_window(game->mlxpointer, game->winpointer,
-			game->collectable, j * 64, i * 64);
+			game->collectable, j * 32, i * 32);
 	}
 	if (game->map[i][j] == 'E')
 		mlx_put_image_to_window(game->mlxpointer, game->winpointer,
-			game->exit, j * 64, i * 64);
+			game->exit, j * 32, i * 32);
 	if (game->map[i][j] == 'P')
 	{
 		game->x_axis = j;
 		game->y_axis = i;
 		mlx_put_image_to_window(game->mlxpointer, game->winpointer,
-			game->player, j * 64, i * 64);
+			game->player, j * 32, i * 32);
 	}
 }
 
