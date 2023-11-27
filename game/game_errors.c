@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:04:16 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/13 18:19:07 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:04:03 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	check_walls(t_comp *game)
 		ft_printf("or is not a rectangle!\n");
 		exit_game(game);
 	}
-	while(i < game->height - 1)
+	while (i < game->height - 1)
 	{
 		if (map_width(game->map[0]) != map_width(game->map[i]))
-			{
-				ft_printf("Error\nMap is not surrounded by walls ");
-				ft_printf("or is not a rectangle!\n");
-				exit_game(game);
-			}
+		{
+			ft_printf("Error\nMap is not surrounded by walls ");
+			ft_printf("or is not a rectangle!\n");
+			exit_game(game);
+		}
 		i++;
 	}
 }
@@ -74,11 +74,11 @@ void	check_walls(t_comp *game)
 void	counter_checker(t_comp *game, int height, int width)
 {
 	if (game->map[height][width] != '1' &&
-			game->map[height][width] != '0' &&
-			game->map[height][width] != 'C' &&
-			game->map[height][width] != 'E' &&
-			game->map[height][width] != 'P' &&
-			game->map[height][width] != '\n')
+		game->map[height][width] != '0' &&
+		game->map[height][width] != 'C' &&
+		game->map[height][width] != 'E' &&
+		game->map[height][width] != 'P' &&
+		game->map[height][width] != '\n')
 	{
 		ft_printf("Error\nMap is not valid here:\n");
 		ft_printf("Line: %i\n", game->height - 1);
@@ -90,11 +90,11 @@ void	counter_checker(t_comp *game, int height, int width)
 	if (game->map[height][width] == 'E')
 		game->exitcount++;
 	if (game->map[height][width] == 'P')
-		{
-			game->playercount++;
-			game->x_axis = width;
-			game->y_axis = height;
-		}
+	{
+		game->playercount++;
+		game->x_axis = width;
+		game->y_axis = height;
+	}
 }
 
 void	char_checker(t_comp *game)

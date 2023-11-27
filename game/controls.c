@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:19:57 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/15 15:39:33 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:15:10 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	legal_move(t_comp *game, int x, int y)
 		game->y_axis = y;
 	}
 	return (1);
-} 
+}
 
 /*
 	This function will move the player to the left and right.
@@ -70,9 +70,10 @@ int	key_a_d(t_comp *game, int keycode)
 			return (0);
 		game->map[y][x - 1] = '0';
 	}
-	ft_printf("steps taken %i\n",game->counter);
+	ft_printf("steps taken %i\n", game->counter);
 	return (1);
 }
+
 /*
 	This function will move the player up and down.
 	If its a legal move, the previous location of the player
@@ -101,9 +102,9 @@ int	key_w_s(t_comp *game, int keycode)
 			return (0);
 		if (!legal_move(game, x, y))
 			return (0);
-		game->map[y - 1][	x] = '0';
+		game->map[y - 1][x] = '0';
 	}
-	ft_printf("steps taken %i\n",game->counter);
+	ft_printf("steps taken %i\n", game->counter);
 	return (1);
 }
 

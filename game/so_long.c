@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:06:23 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/15 17:21:26 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:09:28 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ void	exit_game(t_comp *game)
 	line = 0;
 	destroy_windows(game);
 	while (line < game->height)
-    {
+	{
 		free(game->map[line]);
-        line++;
-    }
+		line++;
+	}
 	if (game->map2)
 	{
 		line = 0;
 		while (line < game->height)
-    	{
+		{
 			free(game->map2[line]);
-        	line++;
-    	}
+			line++;
+		}
 		free (game->map2);
 	}
 	free (game->map);
@@ -42,12 +42,12 @@ static void	*ft_memset(void *b, int c, size_t lenght)
 	unsigned char	*ptr;
 
 	ptr = (unsigned char *)b;
-	while(lenght--)
+	while (lenght--)
 		*ptr++ = (unsigned char)c;
 	return (b);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_comp	game;
 
@@ -57,11 +57,12 @@ int main(int ac, char **av)
 	init_list(&game);
 	map_reading(&game, av);
 	check_errors(&game);
-	game.mlxpointer = mlx_init();
-	game.winpointer = mlx_new_window(game.mlxpointer, game.width * 32, game.height * 32, "so_long");
+	game.mlxp = mlx_init();
+	game.winp = mlx_new_window(game.mlxp, game.width * 32, 
+			game.height * 32, "so_long");
 	set_img_to_var(&game);
 	update_graphics(&game);
-	mlx_key_hook(game.winpointer, controls_hook, &game);
-	mlx_hook(game.winpointer, 17, 0, (void *)exit, 0);
-	mlx_loop(game.mlxpointer);
+	mlx_key_hook(game.winp, controls_hook, &game);
+	mlx_hook(game.winp, 17, 0, (void *)exit, 0);
+	mlx_loop(game.mlxp);
 }

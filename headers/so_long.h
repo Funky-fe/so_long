@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:01:24 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/15 15:35:01 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:06:28 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct t_start
 	void	*exit;
 	void	*player;
 	void	*collectable;
-	void	*winpointer;
-	void	*mlxpointer;
+	void	*winp;
+	void	*mlxp;
 
 }			t_comp;
 

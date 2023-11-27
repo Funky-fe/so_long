@@ -42,9 +42,11 @@ clean:
 		@echo "$(CYAN)Object Files Cleaned!$(DEFAULT)"
 
 fclean:        clean
-		@rm -f $(NAME) $(BONUS_NAME)
+		@rm -f $(NAME)
 		@echo "$(BLUE)Executables Cleaned!$(DEFAULT)"
 
 re:            fclean all
 
 .PHONY:        all bonus test clean fclean re
+
+.SILENT:

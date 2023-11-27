@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/27 18:26:05 by rlima-fe          #+#    #+#             */
+/*   Updated: 2023/11/27 19:15:34 by rlima-fe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../headers/so_long.h"
 
 int	init_list(t_comp *game)
@@ -14,8 +26,8 @@ int	init_list(t_comp *game)
 	game->y_axis = 0;
 	game->collectcheck = 0;
 	game->exitcheck = 0;
-	game->mlxpointer = NULL;
-	game->winpointer = NULL;
+	game->mlxp = NULL;
+	game->winp = NULL;
 	return (0);
 }
 
@@ -23,18 +35,18 @@ void	destroy_windows(t_comp *game)
 {
 	if (game->player)
 	{
-		mlx_destroy_image(game->mlxpointer, game->floor);
-		mlx_destroy_image(game->mlxpointer, game->player);
-		mlx_destroy_image(game->mlxpointer, game->wall);
-		mlx_destroy_image(game->mlxpointer, game->collectable);
-		mlx_destroy_image(game->mlxpointer, game->exit);
+		mlx_destroy_image(game->mlxp, game->floor);
+		mlx_destroy_image(game->mlxp, game->player);
+		mlx_destroy_image(game->mlxp, game->wall);
+		mlx_destroy_image(game->mlxp, game->collectable);
+		mlx_destroy_image(game->mlxp, game->exit);
 	}
-    if (game->mlxpointer != NULL)
+	if (game->mlxp != NULL)
 	{
-		mlx_clear_window(game->mlxpointer, game->winpointer);
-		mlx_destroy_window(game->mlxpointer, game->winpointer);
-		game->winpointer = NULL;
-		mlx_destroy_display(game->mlxpointer);
-		free (game->mlxpointer);
+		mlx_clear_window(game->mlxp, game->winp);
+		mlx_destroy_window(game->mlxp, game->winp);
+		game->winp = NULL;
+		mlx_destroy_display(game->mlxp);
+		free (game->mlxp);
 	}
 }

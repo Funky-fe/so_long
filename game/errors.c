@@ -6,34 +6,33 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:43:32 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/15 16:03:33 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:03:02 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void map_copy(t_comp *game)
+void	map_copy(t_comp *game)
 {
-    int y;
-    int x;
+	int	y;
+	int	x;
 
-    y = 0;
-    game->map2 = malloc(sizeof(char *) * (game->height + 1));
-    while (y < game->height)
-    {
-        x = 0;
-        game->map2[y] = malloc(sizeof(char) * (game->width + 1));
-        while (x < game->width)
-        {
-            game->map2[y][x] = game->map[y][x];
-            x++;
-        }
-        game->map2[y][x] = '\n';
-        y++;
-    }
-    game->map2[y] = NULL;
+	y = 0;
+	game->map2 = malloc(sizeof(char *) * (game->height + 1));
+	while (y < game->height)
+	{
+		x = 0;
+		game->map2[y] = malloc(sizeof(char) * (game->width + 1));
+		while (x < game->width)
+		{
+			game->map2[y][x] = game->map[y][x];
+			x++;
+		}
+		game->map2[y][x] = '\n';
+		y++;
+	}
+	game->map2[y] = NULL;
 }
-
 
 int	valid_path(t_comp *game, char **map, int x, int y)
 {
@@ -42,7 +41,7 @@ int	valid_path(t_comp *game, char **map, int x, int y)
 
 	if (x < 0 || y < 0 || x > game->width || y > game->height
 		|| map[y][x] == '1' || map[y][x] == 'X')
-			return (0);
+		return (0);
 	if (map[y][x] == 'E')
 	{
 		e++;
@@ -63,7 +62,6 @@ int	valid_path(t_comp *game, char **map, int x, int y)
 
 void	check_errors(t_comp *game)
 {
-	// int i = 0;
 	check_walls(game);
 	char_checker(game);
 	map_copy(game);
