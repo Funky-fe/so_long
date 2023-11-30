@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:06:23 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/27 19:09:28 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:25:33 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (0);
+	if (isber(av[1]) == 0)
+	{
+		ft_printf("Error\nInvalid file extension\n");
+		exit (0);
+	}
 	ft_memset(&game, 0, sizeof(t_comp));
 	init_list(&game);
 	map_reading(&game, av);

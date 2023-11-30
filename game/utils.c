@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:26:05 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/27 19:15:34 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:26:33 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,6 @@ void	destroy_windows(t_comp *game)
 		mlx_destroy_display(game->mlxp);
 		free (game->mlxp);
 	}
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)

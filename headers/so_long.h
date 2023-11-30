@@ -6,7 +6,7 @@
 /*   By: rlima-fe <rlima-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:01:24 by rlima-fe          #+#    #+#             */
-/*   Updated: 2023/11/27 19:06:28 by rlima-fe         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:25:08 by rlima-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	check_errors(t_comp *game);
 void	exit_game(t_comp *game);
 int		init_list(t_comp *game);
 void	destroy_windows(t_comp *game);
+int		isber(char *file);
 
 #endif
